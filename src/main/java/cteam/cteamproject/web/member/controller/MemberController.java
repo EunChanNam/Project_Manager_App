@@ -28,7 +28,7 @@ public class MemberController {
 
     @GetMapping("/my-info")
     public Member myInfo(@SessionAttribute(name = "loginMember") Long memberId) {
-        log.info("전체 멤버 조회ㅇ");
+        log.info("전체 멤버 조회");
         return memberService.findById(memberId);
     }
 
