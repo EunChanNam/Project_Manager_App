@@ -44,6 +44,7 @@ public class MemberController {
 
     @GetMapping("joining-projects/{memberId}")
     public List<Project> getJoiningProjects(@PathVariable Long memberId) {
+        log.info("참여중인 프로젝트 조회");
         return relationService.findJoiningProjects(memberId);
     }
 
