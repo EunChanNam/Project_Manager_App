@@ -8,7 +8,7 @@ import javax.validation.constraints.NotEmpty;
 @Getter @Setter
 public class ProjectAddForm {
 
-    @NotEmpty
+    @NotEmpty(message = "프로젝트 이름은 필수입니다.")
     private String projectName;
 
     private String techList;
