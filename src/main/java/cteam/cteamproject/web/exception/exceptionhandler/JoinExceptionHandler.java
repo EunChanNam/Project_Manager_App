@@ -3,15 +3,11 @@ package cteam.cteamproject.web.exception.exceptionhandler;
 import cteam.cteamproject.web.exception.ErrorResult;
 import cteam.cteamproject.web.login.controller.LoginController;
 import cteam.cteamproject.web.member.controller.MemberController;
-import cteam.cteamproject.web.test2.testController;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.MessageSource;
-import org.springframework.context.MessageSourceResolvable;
-import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindException;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -21,7 +17,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @ResponseStatus(HttpStatus.BAD_REQUEST)
-@RestControllerAdvice(assignableTypes = {MemberController.class, LoginController.class, testController.class})
+@RestControllerAdvice(assignableTypes = {MemberController.class, LoginController.class})
 @RequiredArgsConstructor
 public class JoinExceptionHandler {
 

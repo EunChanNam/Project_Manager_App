@@ -6,7 +6,7 @@ import lombok.Setter;
 import javax.validation.constraints.NotEmpty;
 
 @Getter @Setter
-public class ProjectAddFormTest {
+public class ProjectAddForm {
 
     @NotEmpty
     private String projectName;

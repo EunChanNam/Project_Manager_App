@@ -5,7 +5,7 @@ import cteam.cteamproject.domain.memberproject.relationservice.RelationService;
 import cteam.cteamproject.domain.project.Project;
 import cteam.cteamproject.domain.project.projectservice.ProjectService;
 import cteam.cteamproject.web.Success;
-import cteam.cteamproject.web.project.form.ProjectAddFormTest;
+import cteam.cteamproject.web.project.form.ProjectAddForm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -37,12 +37,12 @@ public class ProjectController {
     }
 
     @PostMapping("/add") // ProjectAddFormTest 나중에 상의 후에 변경 TODO
-    public Success addProject(@ModelAttribute ProjectAddFormTest projectAddFormTest) {
+    public Success addProject(@ModelAttribute ProjectAddForm projectAddForm) {
 
         Project project = new Project();
-        project.setProjectName(projectAddFormTest.getProjectName());
-        project.setDetails(projectAddFormTest.getDetails());
-        project.setTechList(projectAddFormTest.getTechList());
+        project.setProjectName(projectAddForm.getProjectName());
+        project.setDetails(projectAddForm.getDetails());
+        project.setTechList(projectAddForm.getTechList());
 
         projectService.addProject(project);
 
