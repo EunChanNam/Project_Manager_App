@@ -7,14 +7,14 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Slf4j
-@Configuration
+//@Configuration
 public class WebConfig implements WebMvcConfigurer {
-
-//    @Override
-//    public void addInterceptors(InterceptorRegistry registry) {
-//        registry.addInterceptor(new LoginInterceptor())
-//                .order(1)
-//                .addPathPatterns("/members/**", "/projects/**")
-//                .excludePathPatterns("/members/join");
-//    }
+// 앱에서 사용하면 로그인해도 자꾸 튕기는 버그가있어서 일단 락, 대신 앱에서 처리
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new LoginInterceptor())
+                .order(1)
+                .addPathPatterns("/members/**", "/projects/**")
+                .excludePathPatterns("/members/join");
+    }
 }

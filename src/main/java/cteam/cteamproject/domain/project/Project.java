@@ -19,13 +19,13 @@ public class Project {
     public Project(String projectName, String details) {
         this.projectName = projectName;
         this.details = details;
-        state = PjStatus.ING;
+        state = PjStatus.RECRUIT;
     }
 
     public Project(String projectName, String details, String techList) {
         this.projectName = projectName;
         this.details = details;
         this.techList = techList;
-        state = PjStatus.ING;
+        state = PjStatus.RECRUIT;
     }
 }

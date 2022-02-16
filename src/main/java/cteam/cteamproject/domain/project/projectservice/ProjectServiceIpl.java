@@ -62,10 +62,10 @@ public class ProjectServiceIpl implements ProjectService{
     }
 
     @Override
-    public List<Project> findFAILProject() {
+    public List<Project> findRECRUITProject() {
         List<Project> projects = projectRepository.findAll();
 
-        return projects.stream().filter(p -> p.getState().equals(PjStatus.FAIL))
+        return projects.stream().filter(p -> p.getState().equals(PjStatus.RECRUIT))
                 .collect(Collectors.toList());
     }
 

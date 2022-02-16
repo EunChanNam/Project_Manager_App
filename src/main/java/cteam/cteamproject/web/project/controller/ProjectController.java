@@ -4,6 +4,7 @@ import cteam.cteamproject.domain.member.Member;
 import cteam.cteamproject.domain.memberproject.relationservice.RelationService;
 import cteam.cteamproject.domain.project.Project;
 import cteam.cteamproject.domain.project.projectservice.ProjectService;
+import cteam.cteamproject.web.Success;
 import cteam.cteamproject.web.project.form.ProjectAddFormTest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -36,14 +37,16 @@ public class ProjectController {
     }
 
     @PostMapping("/add") // ProjectAddFormTest 나중에 상의 후에 변경 TODO
-    public Project addProject(@ModelAttribute ProjectAddFormTest projectAddFormTest) {
+    public Success addProject(@ModelAttribute ProjectAddFormTest projectAddFormTest) {
 
         Project project = new Project();
         project.setProjectName(projectAddFormTest.getProjectName());
         project.setDetails(projectAddFormTest.getDetails());
         project.setTechList(projectAddFormTest.getTechList());
 
-        return projectService.addProject(project);
+        projectService.addProject(project);
+
+        return new Success(true);
     }
 
     @GetMapping("/ING")
@@ -56,8 +59,8 @@ public class ProjectController {
         return projectService.findFINProject();
     }
 
-    @GetMapping("/FAIL")
+    @GetMapping("/RECRUIT")
     public List<Project> projectsFAIL() {
-        return projectService.findFAILProject();
+        return projectService.findRECRUITProject();
     }
 }

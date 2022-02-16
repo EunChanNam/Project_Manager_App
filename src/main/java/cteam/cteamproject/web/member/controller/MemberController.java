@@ -70,13 +70,17 @@ public class MemberController {
 //        memberService.updateMember(member, updateParam);
 //    }
 
-    @PostMapping("/add-project/{projectId}") //ProjectFormTest 테스트하려고 만든것이다 나중에 Project id로 바꾸든 Project 통으로 받든 변경 -> 이건 지금 테스트에서 잘 돌아간다
-    public void addProject(@SessionAttribute(name = "loginMember") Long memberId, @PathVariable Long projectId) {
+    @PostMapping("/add-project/{projectId}")
+    public Success addProject(@SessionAttribute(name = "loginMember") Long memberId, @PathVariable Long projectId) {
         relationService.addRelation(memberId, projectId);
+
+        return new Success(true);
     }
 
-    @PostMapping("/remove-project/{projectId}")//이건 같은 Project 객체를 테스트에선 받아올수없어서 안돌아간다. 나중에 프로젝트 아이디로 받든뭐든 해야된다.
-    public void removeProject(@SessionAttribute(name = "loginMember") Long memberId, @PathVariable Long projectId) {
+    @PostMapping("/remove-project/{projectId}")
+    public Success removeProject(@SessionAttribute(name = "loginMember") Long memberId, @PathVariable Long projectId) {
         relationService.removeRelation(memberId, projectId);
+
+        return new Success(true);
     }
 }

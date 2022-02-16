@@ -20,7 +20,7 @@ public interface ProjectService {
 
     List<Project> findFINProject();
 
-    List<Project> findFAILProject();
+    List<Project> findRECRUITProject();
 
     List<Project> findProjects();
 }
