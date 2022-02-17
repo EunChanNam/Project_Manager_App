@@ -13,7 +13,7 @@ public class Project {
     private String techList;
 
     public Project() {
-        state = PjStatus.ING;
+        state = PjStatus.RECRUIT;
     }
 
     public Project(String projectName, String details) {
@@ -28,4 +28,6 @@ public class Project {
         this.techList = techList;
         state = PjStatus.RECRUIT;
     }
+
+
 }
