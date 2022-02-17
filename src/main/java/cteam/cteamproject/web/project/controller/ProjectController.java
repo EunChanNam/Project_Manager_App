@@ -69,8 +69,9 @@ public class ProjectController {
     }
 
     @PostMapping("/edit-state")
-    public Project editState(@RequestBody Project project, @RequestParam PjStatus state) {
+    public Success editState(@ModelAttribute Project project, @RequestParam PjStatus state) {
         projectService.updateProjectState(project, state);
-        return projectService.findById(project.getId());
+        log.info("프로젝스 State 수정");
+        return new Success(true);
     }
 }
