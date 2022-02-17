@@ -34,6 +34,12 @@ public class ProjectServiceIpl implements ProjectService{
     }
 
     @Override
+    public void updateProjectState(Project project, PjStatus state) {
+        Long id = project.getId();
+        projectRepository.updateState(id, state);
+    }
+
+    @Override
     public Project findById(Long id) {
         Optional<Project> optionalProject = projectRepository.findById(id);
         return optionalProject.orElse(null);

@@ -1,5 +1,6 @@
 package cteam.cteamproject.domain.project.projectservice;
 
+import cteam.cteamproject.domain.project.PjStatus;
 import cteam.cteamproject.domain.project.Project;
 
 import java.util.List;
@@ -11,6 +12,8 @@ public interface ProjectService {
     void deleteProject(Project project);
 
     void updateProject(Project project, Project updateParam);
+
+    void updateProjectState(Project project, PjStatus state);
 
     Project findById(Long id);
 

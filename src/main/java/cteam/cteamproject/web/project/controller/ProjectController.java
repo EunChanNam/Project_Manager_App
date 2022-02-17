@@ -1,6 +1,7 @@
 package cteam.cteamproject.web.project.controller;
 
 import cteam.cteamproject.domain.member.Member;
+import cteam.cteamproject.domain.project.PjStatus;
 import cteam.cteamproject.domain.relation.relationservice.RelationService;
 import cteam.cteamproject.domain.project.Project;
 import cteam.cteamproject.domain.project.projectservice.ProjectService;
@@ -37,19 +38,6 @@ public class ProjectController {
         return relationService.findJoinedMembers(projectId);
     }
 
-    @PostMapping("/add")
-    public Success addProject(@Validated @ModelAttribute ProjectAddForm projectAddForm) {
-
-        Project project = new Project();
-        project.setProjectName(projectAddForm.getProjectName());
-        project.setDetails(projectAddForm.getDetails());
-        project.setTechList(projectAddForm.getTechList());
-
-        projectService.addProject(project);
-
-        return new Success(true);
-    }
-
     @GetMapping("/ING")
     public List<Project> projectsING() {
         return projectService.findINGProject();
@@ -63,5 +51,26 @@ public class ProjectController {
     @GetMapping("/RECRUIT")
     public List<Project> projectsFAIL() {
         return projectService.findRECRUITProject();
+    }
+
+    @PostMapping("/add")
+    public Success addProject(@Validated @ModelAttribute ProjectAddForm projectAddForm,
+                              @SessionAttribute(name = "loginMember") Long memberId) {
+
+        Project project = new Project();
+        project.setProjectName(projectAddForm.getProjectName());
+        project.setDetails(projectAddForm.getDetails());
+        project.setTechList(projectAddForm.getTechList());
+
+        projectService.addProject(project);
+        relationService.addRelation(memberId, project.getId());
+
+        return new Success(true);
+    }
+
+    @PostMapping("/edit-state")
+    public Project editState(@RequestBody Project project, @RequestParam PjStatus state) {
+        projectService.updateProjectState(project, state);
+        return projectService.findById(project.getId());
     }
 }

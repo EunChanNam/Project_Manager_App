@@ -38,7 +38,11 @@ public class MemberController {
     }
 
     @GetMapping("/joining-projects/my")
-    public List<Project> getMyJoiningProjects(@SessionAttribute(name = "loginMember") Long memberId) {
+    public List<Project> getMyJoiningProjects(@SessionAttribute(name = "loginMember", required = false) Long memberId) {
+        if (memberId == null) {
+            log.info("세션없음");
+            return null;
+        }
         return relationService.findJoiningProjects(memberId);
     }
 

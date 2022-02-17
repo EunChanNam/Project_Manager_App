@@ -1,5 +1,6 @@
 package cteam.cteamproject.domain.project.projectrepository;
 
+import cteam.cteamproject.domain.project.PjStatus;
 import cteam.cteamproject.domain.project.Project;
 import org.springframework.stereotype.Repository;
 
@@ -35,6 +36,14 @@ public class MemoryProjectRepository implements ProjectRepository {
         project.setProjectName(updateParam.getProjectName());
         project.setDetails(updateParam.getDetails());
         project.setState(updateParam.getState());
+        project.setTechList(updateParam.getTechList());
+    }
+
+    @Override
+    public void updateState(Long id, PjStatus state) {
+        Project project = projectStore.get(id);
+
+        project.setState(state);
     }
 
     @Override
