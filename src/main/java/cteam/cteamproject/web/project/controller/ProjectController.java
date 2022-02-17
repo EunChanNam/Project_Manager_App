@@ -1,13 +1,14 @@
 package cteam.cteamproject.web.project.controller;
 
 import cteam.cteamproject.domain.member.Member;
-import cteam.cteamproject.domain.memberproject.relationservice.RelationService;
+import cteam.cteamproject.domain.relation.relationservice.RelationService;
 import cteam.cteamproject.domain.project.Project;
 import cteam.cteamproject.domain.project.projectservice.ProjectService;
 import cteam.cteamproject.web.Success;
 import cteam.cteamproject.web.project.form.ProjectAddForm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,8 +37,8 @@ public class ProjectController {
         return relationService.findJoinedMembers(projectId);
     }
 
-    @PostMapping("/add") // ProjectAddFormTest 나중에 상의 후에 변경 TODO
-    public Success addProject(@ModelAttribute ProjectAddForm projectAddForm) {
+    @PostMapping("/add")
+    public Success addProject(@Validated @ModelAttribute ProjectAddForm projectAddForm) {
 
         Project project = new Project();
         project.setProjectName(projectAddForm.getProjectName());

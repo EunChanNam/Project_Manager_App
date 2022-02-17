@@ -2,7 +2,7 @@ package cteam.cteamproject.web.member.controller;
 
 import cteam.cteamproject.domain.member.Member;
 import cteam.cteamproject.domain.member.memberservice.MemberService;
-import cteam.cteamproject.domain.memberproject.relationservice.RelationService;
+import cteam.cteamproject.domain.relation.relationservice.RelationService;
 import cteam.cteamproject.domain.project.Project;
 import cteam.cteamproject.web.Success;
 import cteam.cteamproject.web.member.form.MemberJoinForm;

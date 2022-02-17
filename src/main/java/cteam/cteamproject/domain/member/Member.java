@@ -11,7 +11,6 @@ public class Member {
     private String pw;
     private String name;
     private String position;
-//    private Position position;
     private String techList;
 
     public Member(String loginId, String pw, String name, String position, String techList) {

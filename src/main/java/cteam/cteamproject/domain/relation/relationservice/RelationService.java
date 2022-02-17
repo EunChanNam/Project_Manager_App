@@ -1,4 +1,4 @@
-package cteam.cteamproject.domain.memberproject.relationservice;
+package cteam.cteamproject.domain.relation.relationservice;
 
 import cteam.cteamproject.domain.member.Member;
 import cteam.cteamproject.domain.project.Project;

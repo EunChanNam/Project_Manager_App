@@ -1,11 +1,11 @@
-package cteam.cteamproject.domain.memberproject.relationservice;
+package cteam.cteamproject.domain.relation.relationservice;
 
 import cteam.cteamproject.domain.member.Member;
 import cteam.cteamproject.domain.member.memberrepository.MemoryMemberRepository;
 import cteam.cteamproject.domain.member.memberservice.MemberService;
 import cteam.cteamproject.domain.member.memberservice.MemberServiceIpl;
-import cteam.cteamproject.domain.memberproject.Relation;
-import cteam.cteamproject.domain.memberproject.relationrepository.RelationRepositoryIpl;
+import cteam.cteamproject.domain.relation.Relation;
+import cteam.cteamproject.domain.relation.relationrepository.RelationRepositoryIpl;
 import cteam.cteamproject.domain.project.Project;
 import cteam.cteamproject.domain.project.projectrepository.MemoryProjectRepository;
 import cteam.cteamproject.domain.project.projectservice.ProjectService;

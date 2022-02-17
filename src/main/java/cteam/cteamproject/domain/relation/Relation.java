@@ -1,7 +1,6 @@
-package cteam.cteamproject.domain.memberproject;
+package cteam.cteamproject.domain.relation;
 
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
 public class Relation {

@@ -1,6 +1,6 @@
-package cteam.cteamproject.domain.memberproject.relationrepository;
+package cteam.cteamproject.domain.relation.relationrepository;
 
-import cteam.cteamproject.domain.memberproject.Relation;
+import cteam.cteamproject.domain.relation.Relation;
 
 import java.util.List;
 
