@@ -39,7 +39,7 @@ public class RelationServiceIpl implements RelationService{
                 .collect(Collectors.toList());
     }
 
-    @Override
+    @Override //hello
     public List<Member> findJoinedMembers(Long projectId) {
         return relationRepository.findAll().stream()
                 .filter(r -> r.getProjectId().equals(projectId))
